@@ -15,7 +15,6 @@ const el = {
   category: document.getElementById("category"),
   difficulty: document.getElementById("difficulty"),
   startBtn: document.getElementById("start-btn"),
-  startHint: document.getElementById("start-hint"),
   qIndex: document.getElementById("q-index"),
   qTotal: document.getElementById("q-total"),
   liveScore: document.getElementById("live-score"),
@@ -90,7 +89,6 @@ async function startQuiz() {
       ...q,
       answers: shuffle([q.correct, ...q.incorrect]),
     }));
-    el.startHint.textContent = "Using offline question set.";
   }
   current = 0;
   score = 0;
