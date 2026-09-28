@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Trivia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- ============ START SCREEN ============ -->
+    <section class="screen screen--start" id="screen-start">
+      <div class="badge">🧠 Quick Trivia</div>
+      <h1 class="title">Think you know it all?</h1>
+      <p class="subtitle">10 questions. One shot each. Let's see your score.</p>
+
+      <div class="options">
+        <label class="field">
+          <span class="field__label">Category</span>
+          <select id="category" class="select">
+            <option value="any">Any category</option>
+            <option value="9">General Knowledge</option>
+            <option value="17">Science &amp; Nature</option>
+            <option value="18">Computers</option>
+            <option value="23">History</option>
+            <option value="22">Geography</option>
+            <option value="11">Film</option>
+            <option value="21">Sports</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Difficulty</span>
+          <select id="difficulty" class="select">
+            <option value="any">Any difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+
+      <button class="btn btn--primary" id="start-btn">Start quiz</button>
+      <p class="hint" id="start-hint">Questions from the Open Trivia DB.</p>
+    </section>
+
+    <!-- ============ QUIZ SCREEN ============ -->
+    <section class="screen screen--quiz" id="screen-quiz" hidden>
+      <header class="quiz__bar">
+        <span class="quiz__count">Question <b id="q-index">1</b> / <span id="q-total">10</span></span>
+        <span class="quiz__score">Score: <b id="live-score">0</b></span>
+      </header>
+
+      <div class="progress"><div class="progress__fill" id="progress-fill"></div></div>
+
+      <div class="quiz__meta">
+        <span class="pill" id="q-category">—</span>
+        <span class="pill pill--soft" id="q-difficulty">—</span>
+      </div>
+
+      <h2 class="question" id="question">Loading…</h2>
+
+      <div class="answers" id="answers"></div>
+
+      <button class="btn btn--primary btn--next" id="next-btn" disabled>Next</button>
+    </section>
+
+    <!-- ============ RESULTS SCREEN ============ -->
+    <section class="screen screen--results" id="screen-results" hidden>
+      <div class="result__emoji" id="result-emoji">🎉</div>
+      <h2 class="result__headline" id="result-headline">Nice work!</h2>
+      <div class="result__score">
+        <span id="final-score">0</span><span class="result__slash">/</span><span id="final-total">10</span>
+      </div>
+      <p class="result__pct" id="result-pct">0%</p>
+
+      <div class="result__bars" id="result-breakdown"></div>
+
+      <button class="btn btn--primary" id="again-btn">Play again</button>
+    </section>
+
+    <!-- ============ LOADING / ERROR ============ -->
+    <section class="screen screen--loading" id="screen-loading" hidden>
+      <div class="spinner"></div>
+      <p>Fetching fresh questions…</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
